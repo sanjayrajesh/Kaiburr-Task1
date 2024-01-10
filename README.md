@@ -15,6 +15,7 @@ The Application mainly has:
 4. A Service class is created to do the business logics. In our case we have created a function to randomly generate the special prperty everytime a Task is created.
 
 As per the task there are 5 REST API endpoints.
+
 ![Screenshot](screenshots/Postman_reqList.PNG)
 
 # Application responds to requests using postman
