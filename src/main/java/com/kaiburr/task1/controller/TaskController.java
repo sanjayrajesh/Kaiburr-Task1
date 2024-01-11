@@ -7,6 +7,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kaiburr.task1.model.Task;
+import com.kaiburr.task1.model.RequestJSONResponse;
 import com.kaiburr.task1.repository.TaskRepository;
 import com.kaiburr.task1.service.TaskService;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:4200")
 public class TaskController {
 
 	@Autowired
@@ -37,7 +40,9 @@ public class TaskController {
 			if (foundTask != null) {
 				return new ResponseEntity<>(foundTask, HttpStatus.OK);
 			} else {
-				return new ResponseEntity<>("Task not found", HttpStatus.NOT_FOUND);
+				return new ResponseEntity<>(
+						new RequestJSONResponse().setMessage("Task not found").setStatus(HttpStatus.NOT_FOUND),
+						HttpStatus.NOT_FOUND);
 			}
 		}
 		return new ResponseEntity<>(taskRepo.findAll(), HttpStatus.OK);
@@ -51,10 +56,13 @@ public class TaskController {
 			if (!foundTask.isEmpty()) {
 				return new ResponseEntity<>(foundTask, HttpStatus.OK);
 			} else {
-				return new ResponseEntity<>("Task name NOT found in the Database!", HttpStatus.NOT_FOUND);
+				return new ResponseEntity<>(new RequestJSONResponse().setMessage("Task name NOT found in the Database!")
+						.setStatus(HttpStatus.NOT_FOUND), HttpStatus.NOT_FOUND);
 			}
 		}
-		return new ResponseEntity<>("Task name is NOT given, Please input the Task name", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(new RequestJSONResponse()
+				.setMessage("Task name is NOT given, Please input the Task name").setStatus(HttpStatus.NOT_FOUND),
+				HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping("/searchbyassignee")
@@ -66,14 +74,20 @@ public class TaskController {
 			if (!foundTask.isEmpty()) {
 				return new ResponseEntity<>(foundTask, HttpStatus.OK);
 			} else {
-				return new ResponseEntity<>("Assignee name NOT found in the Database!", HttpStatus.NOT_FOUND);
+				return new ResponseEntity<>(new RequestJSONResponse()
+						.setMessage("Assignee name NOT found in the Database!").setStatus(HttpStatus.NOT_FOUND),
+						HttpStatus.NOT_FOUND);
 			}
 		}
-		return new ResponseEntity<>("Assignee name is NOT given, Please input the Assignee name", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(
+				new RequestJSONResponse().setMessage("Assignee name is NOT given, Please input the Assignee name")
+						.setStatus(HttpStatus.NOT_FOUND),
+				HttpStatus.NOT_FOUND);
 	}
 
 	@PutMapping("/create")
 	public ResponseEntity<String> createTask(@RequestBody Task body) {
+		//System.out.println("Printing the body: " + body.toString());
 		String taskID = body.getId();
 		if (taskID != null && !taskID.isEmpty()) {
 			Task foundTask = taskRepo.findById(taskID).orElse(null);
