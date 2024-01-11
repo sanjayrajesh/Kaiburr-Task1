@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "f257b0e3-0d7d-4429-b034-122af2679d37",
+		"name": "Kaiburr Task1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16204088"
+	},
+	"item": [
+		{
+			"name": "Search Task without ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Task with ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "504",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Task by Name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "install linux",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/searchbyname",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"searchbyname"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Task by Assignee",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "assignee",
+						"value": "Sanjay Rajesh",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/searchbyassignee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"searchbyassignee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"Taking Screenshot for Github\",\r\n\"id\": \"137\",\r\n\"assignee\":\"Sanjay Rajesh\",\r\n\"project\":\"Kaiburr Task1\",\r\n\"startTime\": \"2024-01-10T19:31:50.256Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Task with ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "id",
+						"value": "137",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
