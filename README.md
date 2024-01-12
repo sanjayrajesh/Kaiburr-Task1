@@ -10,7 +10,7 @@ To run the code I am using Eclipse as my IDE. Since Spring boot project(WAR) com
 The Application mainly has:
 
 1. One REST Controller which will wait for all the resquest that are coming and will process the code and return a Response.
-2. One Task Model is created with all the reuired properties mentioned in the task.
+2. One Task Model is created with all the required properties mentioned in the task.
 3. One Repository is added, which will help for the Database operations and finally
 4. A Service class is created to do the business logics. In our case we have created a function to randomly generate the special prperty everytime a Task is created.
 
