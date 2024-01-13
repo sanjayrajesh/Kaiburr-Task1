@@ -3,7 +3,7 @@ Task 1. Java REST API example
 
 The task is done using Spring boot. The project is made using Spring Initializr, additionally the `spring-boot-starter-data-mongodb` dependency is added to the project which will help the app to connect to MongoDB.
 
-We are using MongoDB Atlas for the project. So the Database is on the cloud and MongoDB connection string is generated from the portal and has been used in the project. The configurations are added in `application.properties` file in the project.
+We are using MongoDB Atlas for the project. So the Database is on the cloud and MongoDB connection string is generated from the portal and has been used in the project. The configurations are added in `application.properties` file in the project. For security reasons, I have removed my username and password to connect to MongoDB Atlas.
 
 To run the code I am using Eclipse as my IDE. Since Spring boot project(WAR) comes with tomcat dependencies and Eclipse also has it. We can easily run the application through Eclipse.
 
@@ -17,6 +17,8 @@ The Application mainly has:
 As per the task there are 5 REST API endpoints.
 
 ![Screenshot](screenshots/Postman_reqList.PNG)
+
+NOTE: The [postman collection](Kaiburr Task1.postman_collection.json) is also uploaded in the repository.
 
 # Application responds to requests using postman
 
@@ -40,3 +42,11 @@ We can also search a task by its Name. This will return all the Tasks with the s
 
 Search can also be done with assignee Name. This will return a max of 10 Task created by the Assignee sorted by the latest time.
 ![Screenshot](screenshots/searchByAssignee.PNG)
+
+# References Taken
+
+[Spring Boot and MongoDB](https://www.mongodb.com/compatibility/spring-boot)
+
+[Spring Boot Starter Data MongoDB maven dependency](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb)
+
+[Pagination and Sorting using Spring Data](https://www.baeldung.com/spring-data-jpa-pagination-sorting)
