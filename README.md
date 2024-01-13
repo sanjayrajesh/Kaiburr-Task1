@@ -18,7 +18,7 @@ As per the task there are 5 REST API endpoints.
 
 ![Screenshot](screenshots/Postman_reqList.PNG)
 
-NOTE: The [postman collection](Kaiburr Task1.postman_collection.json) is also uploaded in the repository.
+NOTE: The [postman collection](Kaiburr%20Task1.postman_collection.json) is also uploaded in the repository.
 
 # Application responds to requests using postman
 
@@ -43,7 +43,7 @@ We can also search a task by its Name. This will return all the Tasks with the s
 Search can also be done with assignee Name. This will return a max of 10 Task created by the Assignee sorted by the latest time.
 ![Screenshot](screenshots/searchByAssignee.PNG)
 
-# References Taken
+# References taken
 
 [Spring Boot and MongoDB](https://www.mongodb.com/compatibility/spring-boot)
 
