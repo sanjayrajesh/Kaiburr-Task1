@@ -66,10 +66,10 @@ public class TaskController {
 	}
 
 	@GetMapping("/searchbyassignee")
-	public ResponseEntity<Object> searchTaskByAssignee(@RequestHeader("assignee") String assigneeName) {
+	public ResponseEntity<Object> searchTaskByAssignee(@RequestHeader("assignee") String assigneeName, @RequestHeader("num") int num) {
 		if (assigneeName != null && !assigneeName.isEmpty()) {
 			List<Task> foundTask = taskRepo.findAllByAssignee(assigneeName,
-					PageRequest.of(0, 10, Sort.by("startTime").descending()));
+					PageRequest.of(0, num, Sort.by("startTime").descending()));
 
 			if (!foundTask.isEmpty()) {
 				return new ResponseEntity<>(foundTask, HttpStatus.OK);
